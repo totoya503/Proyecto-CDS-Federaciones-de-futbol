@@ -482,6 +482,25 @@ a {
   margin-bottom: 1.5rem;
 }
 
+.report-cards--metrics {
+  align-items: start;
+  justify-items: center;
+}
+
+.report-metric-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.report-metric-col__pdf {
+  width: 100%;
+  max-width: 280px;
+}
+
 .report-card {
   background: var(--blue-mid);
   color: #fff;
@@ -495,6 +514,31 @@ a {
   box-shadow: var(--shadow);
 }
 
+.report-card--clickable {
+  border: 2px solid transparent;
+  cursor: pointer;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  appearance: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.report-card--clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(11, 42, 92, 0.18);
+}
+
+.report-card--clickable.is-active {
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35), var(--shadow);
+}
+
+.report-card--clickable:focus-visible {
+  outline: 3px solid var(--blue-light);
+  outline-offset: 3px;
+}
+
 .report-card__icon {
   font-size: 1.75rem;
 }
@@ -502,6 +546,7 @@ a {
 .report-card__stat {
   font-size: 1.65rem;
   font-weight: 800;
+  display: block;
 }
 
 .report-card__label {
@@ -576,9 +621,13 @@ a {
   margin-bottom: 1rem;
 }
 
+.bar-block {
+  margin-bottom: 0.25rem;
+}
+
 .bar-row {
   display: grid;
-  grid-template-columns: 120px 1fr 48px;
+  grid-template-columns: minmax(112px, 32%) 1fr 48px;
   gap: 0.5rem;
   align-items: center;
   margin: 0.35rem 0;
@@ -618,10 +667,30 @@ a {
   font-weight: 700;
 }
 
-.bar-caption {
-  margin: 0.1rem 0 0.5rem 120px;
-  font-size: 0.85rem;
+.bar-caption--indent {
+  margin: 0.15rem 0 0.45rem 0;
+  padding-left: 0;
   color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.report-hint {
+  text-align: center;
+  margin: 0 0 1.25rem;
+}
+
+.report-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.data-table__strong {
+  font-weight: 700;
+}
+
+.data-table--compact {
+  min-width: 0;
 }
 
 .report-actions {
@@ -635,7 +704,8 @@ a {
   .sgff-header,
   .no-print,
   .report-actions,
-  .report-card .btn {
+  .report-metric-col__pdf,
+  .report-card--clickable {
     display: none !important;
   }
   .page--reportes {
