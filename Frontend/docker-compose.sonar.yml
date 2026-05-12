@@ -1,0 +1,21 @@
+# SonarQube local (Community) para análisis de calidad
+# Uso: docker compose -f docker-compose.sonar.yml up -d
+# Interfaz: http://localhost:9000 (usuario/contraseña por defecto admin/admin, cambiar al primer inicio)
+
+services:
+  sonarqube:
+    image: sonarqube:10-community
+    container_name: sgff-sonarqube
+    ports:
+      - "9000:9000"
+    environment:
+      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_extensions:/opt/sonarqube/extensions
+      - sonarqube_logs:/opt/sonarqube/logs
+
+volumes:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_logs:
