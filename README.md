@@ -98,7 +98,7 @@ php artisan migrate
 
 Esto crea la base de datos y todas las tablas: `federaciones`, `equipos`, `jugadores`, `users`, `sessions`, etc.
 
-Si quieres poblar la base de datos con datos de prueba (si existen seeders):
+Si quieres poblar la base de datos con datos de prueba:
 
 ```bash
 php artisan migrate:fresh --seed
