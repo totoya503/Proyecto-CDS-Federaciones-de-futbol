@@ -62,12 +62,6 @@ Copy-Item .env.example .env
 Luego **abre `.env`** con cualquier editor y edita las siguientes variables:
 
 ```env
-APP_NAME="Federaciones Futbol"
-APP_ENV=local
-APP_KEY=                        # se genera en el paso 1.4
-APP_DEBUG=true
-APP_URL=http://localhost:8000
-
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -80,17 +74,10 @@ SANCTUM_STATEFUL_DOMAINS=localhost:5173
 SESSION_DOMAIN=localhost
 ```
 
-
-### 1.4 Generar la clave de la aplicación
-
-```bash
-php artisan key:generate
-```
-
 Esto rellena automáticamente `APP_KEY` en el `.env`.
 
 
-### 1.5 Ejecutar las migraciones
+### 1.4 Ejecutar las migraciones
 
 ```bash
 php artisan migrate
@@ -108,7 +95,7 @@ php artisan migrate:fresh --seed
 php artisan db:seed
 ```
 
-### 1.6 Iniciar el servidor de desarrollo
+### 1.5 Iniciar el servidor de desarrollo
 
 ```bash
 php artisan serve
